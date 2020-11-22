@@ -1,9 +1,16 @@
 import { createStore } from "redux";
 import reducer from "./reducer";
 
-export const store = createStore(reducer);
+const persistedState = {
+  basket: JSON.parse(localStorage.getItem("basket")) || []
+};
+
+export const store = createStore(reducer, persistedState);
 
 store.subscribe(() => {
-  const { basket } = store.getState();
-  localStorage.setItem("product", JSON.stringify(basket));
+  const state = store.getState();
+
+  if(state.hasOwnProperty('basket')) {
+    localStorage.setItem("basket", JSON.stringify(state.basket));
+  }
 });

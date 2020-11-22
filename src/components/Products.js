@@ -5,6 +5,10 @@ import { useSelector } from "react-redux";
 function Products() {
   const products = useSelector((state) => state.products);
 
+  if(!products) {
+    return 'loadig'
+  }
+
   return products.map((item) => <Product item={item} key={item.id} />);
 }
 

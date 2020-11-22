@@ -1,27 +1,21 @@
-import { products } from "../utils/products";
-
-const basket =
-  localStorage.getItem("basket") === null
-    ? []
-    : JSON.parse(localStorage.getItem("basket"));
-
-const initialState = {
-  products,
-  basket,
-};
-
-export default function reducer(state = initialState, action) {
+export default function reducer(state = {}, action) {
   switch (action.type) {
+    case "load":
+      return {
+        ...state,
+        products: action.payload
+      }
+
     case "add":
       return {
         ...state,
-        basket: [...state.basket, action.payload],
+        basket: [...state.basket, state.products.find((product) => product.id === action.payload)]
       };
 
     case "delete":
       return {
         ...state,
-        basket: action.payload,
+        basket: state.basket.filter((product) => product.id !== action.payload),
       };
 
     default:

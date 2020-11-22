@@ -1,5 +1,5 @@
 import React from "react";
-import cartIcon from "./assets/shopping-cart.svg";
+import cartIcon from "../assets/shopping-cart.svg";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -12,7 +12,9 @@ function BasketButton() {
   return (
     <button onClick={handleClick}>
       <img src={cartIcon} alt="cart" />
-      <div className="basket-counter">{basket.length}</div>
+      {basket.length ? (
+        <div className="basket-counter">{basket.length}</div>
+      ) : null}
     </button>
   );
 }

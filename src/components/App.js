@@ -1,5 +1,4 @@
 import Header from "./Header";
-import Products from "./Products";
 import Main from "./Main";
 
 function App() {

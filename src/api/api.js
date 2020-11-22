@@ -10,10 +10,11 @@ export function sendBasket(basket) {
   })
     .then((res) => res.json())
     .then((json) => {
-      if (json.res === "success") {
+      if (json.status === 300) {
         console.log("basket information sent successful");
-      } else if (json.res === "fail") {
+      } else  {
         console.log("basket information sending failed");
       }
-    });
+    }).catch((err) => console.error(err))
+  ;
 }

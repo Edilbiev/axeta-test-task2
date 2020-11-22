@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToBasket, deleteFromBasket } from "./redux/actions";
+import { addToBasket, deleteFromBasket } from "../redux/actions";
 import { useHistory } from "react-router-dom";
 import AdditionButton from "./AdditionButton";
 import DeletionButton from "./DeletionButton";
@@ -9,7 +9,7 @@ function Product({ item }) {
   const history = useHistory();
 
   const basket = useSelector((state) => state.basket);
-  console.log(basket);
+
   const isLocationBasket = history.location.pathname === "/basket";
 
   const isProductInBasket = basket.find(

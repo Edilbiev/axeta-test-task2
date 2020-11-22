@@ -1,5 +1,4 @@
 export function sendBasket(basket) {
-  console.log("запрос");
   fetch("http://localhost:3000", {
     method: "POST",
     headers: {
@@ -10,11 +9,11 @@ export function sendBasket(basket) {
   })
     .then((res) => res.json())
     .then((json) => {
-      if (json.status === 300) {
+      if (json.status === 200) {
         console.log("basket information sent successful");
-      } else  {
+      } else {
         console.log("basket information sending failed");
       }
-    }).catch((err) => console.error(err))
-  ;
+    })
+    .catch((err) => console.error(err));
 }

@@ -6,7 +6,7 @@ function Products() {
   const products = useSelector((state) => state.products);
 
   if(!products) {
-    return 'loadig'
+    return <div className="loading">Loading...</div>
   }
 
   return products.map((item) => <Product item={item} key={item.id} />);

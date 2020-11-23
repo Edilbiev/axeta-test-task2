@@ -107,9 +107,14 @@ button[disabled] {
   color: white;
 }
 
-.empty-basket {
+.empty-basket, .loading {
   color: darkred;
   margin: 40vh auto auto auto;
+}
+
+.loading {
+  color: black;
+  font-size: 2em;
 }
 
 .home-button {

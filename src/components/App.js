@@ -10,8 +10,6 @@ function App() {
   const dispatch = useDispatch();
   const basket = useSelector((state) => state.basket);
 
-  console.log(basket)
-
   useEffect(() => {
     const interval = setInterval(() => {
       sendBasket(basket);
